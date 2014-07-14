@@ -8,6 +8,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="ImageJ" level="project" />
+    <orderEntry type="library" exported="" name="ImageJ_3D_Viewer" level="project" />
+    <orderEntry type="library" exported="" name="j3dcore" level="project" />
+    <orderEntry type="library" exported="" name="j3dutils" level="project" />
+    <orderEntry type="library" name="vecmath" level="project" />
   </component>
 </module>
 

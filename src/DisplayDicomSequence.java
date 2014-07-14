@@ -1,6 +1,8 @@
 import ij.IJ;
 import ij.ImagePlus;
 import ij.ImageStack;
+import ij.io.FileSaver;
+import ij.io.Opener;
 import ij.plugin.DICOM;
 import ij.util.DicomTools;
 
@@ -83,7 +85,23 @@ public class DisplayDicomSequence {
          */
         ImagePlus dicomStackImage = new ImagePlus("BRAINX",sortedDcmStack);
 
-        dicomStackImage.show();
+        //THIS WORKS
+        //dicomStackImage.show();
+
+        //trying to get a .draw() to work I think i need to create an "
+        //dicomStackImage.draw();
+
+        //trying to save the image as diff file types
+        FileSaver saveFile = new FileSaver(dicomStackImage);
+
+        /* //BOTH OF THESE FILE SAVES WORKS. THOUGH jpeg only works for a single slice
+        saveFile.saveAsJpeg("/home/elblonko/Desktop/ExportedDICOM/BrainXjpg");
+        saveFile.saveAsTiffStack("/home/elblonko/Desktop/ExportedDICOM/BrainXtiff");
+        */
+
+        Opener openStuff = new Opener();
+
+        openStuff.open();
 
 
 
