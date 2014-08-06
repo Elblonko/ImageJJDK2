@@ -19,10 +19,18 @@ public class DisplayDicom3D {
 
     public static void main(String [] args){
 
-        String path = new String("/home/elblonko/Desktop/ExportedDICOM/BrainX");
+        //Display 200 sequence that forms entire head
+        //String path = new String("/home/elblonko/Desktop/ExportedDICOM/0.9-200-Sequencetiff");
+
+        //Display a 20 segment slice of the middle section of the brain
+        //String path = new String("/home/elblonko/Desktop/ExportedDICOM/WholeHeadtiff");
+
+        String path = new String("/home/elblonko/Desktop/DicomToNifti/mcverter/bet/BetExtractedNifti.nii");
 
 
-        ImagePlus dicomStackImage = IJ.openImage(path);
+        //ImagePlus dicomStackImage = IJ.openImage(path);
+
+        ImagePlus dicomStackImage = (ImagePlus)IJ.runPlugIn("Nifti_Reader", path);
 
         new StackConverter(dicomStackImage).convertToGray8();
 
@@ -38,7 +46,10 @@ public class DisplayDicom3D {
         each voxel, a transparency value is assigned, depending on its intensity. Black
         voxels are thereby fully transparent, whereas white ones are fully opaque.
          */
-        Content c = univ.addVoltex(dicomStackImage);
+        Content c;
+        //c = univ.addVoltex(dicomStackImage);
+
+        c = univ.addOrthoslice(dicomStackImage);
 
 
         // Display the image as orthslices
@@ -47,7 +58,7 @@ public class DisplayDicom3D {
         and Surface Plots. Contents which were created from an ImagePlus can be
         transferred from one display type into another:
          */
-        //c.displayAs(Content.ORTHO);
+        //c.displayAs(Content.MULTIORTHO);
 
         // Remove the Content from the universe
         //univ.removeContent(c.getName());
@@ -61,7 +72,7 @@ public class DisplayDicom3D {
         be seen later.
          */
         // Add an isosurface
-         //c = univ.addMesh(dicomStackImage);
+        //c = univ.addMesh(dicomStackImage);
 
 
          /*
@@ -75,6 +86,18 @@ public class DisplayDicom3D {
         //univ.removeAllContents();
         // close
         //univ.close();
+
+        /*
+        //Create a movie
+        // animate the universe
+        univ.startAnimation();
+
+
+        // record a 360 degree rotation around the y-axis
+        ImagePlus movie = univ.record360();
+        movie.show();
+        univ.pauseAnimation();
+        */
 
 
 

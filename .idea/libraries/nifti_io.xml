@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="nifti_io">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/lib/nifti_io.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$APPLICATION_HOME_DIR$/lib/nifti_io.jar!/" />
+    </SOURCES>
+  </library>
+</component>
